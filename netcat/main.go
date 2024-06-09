@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8080")
+	ip := os.Args[1]
+	log.Print("using ip: " + string(ip))
+	conn, err := net.Dial("tcp", ip+":80")
 	if err != nil {
 		log.Panic(err)
 	}
